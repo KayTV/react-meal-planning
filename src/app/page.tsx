@@ -1,12 +1,15 @@
+
+import { Container } from "react-bootstrap";
 import MealPlan from "./meal-plan/meal-plan";
+import NavBarFunction from "./navbar/navbar";
 
 export default function Home() {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <MealPlan />
-      </div>
-    </div>
-
+    <>
+      <NavBarFunction />
+      <Container className="containerClass">
+          <MealPlan />
+      </Container>
+    </>
   );
 }

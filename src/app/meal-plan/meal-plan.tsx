@@ -3,7 +3,7 @@ import {meals} from '../../lib/meals';
 import {Meal} from '../../lib/definitions';
 import {days} from '../../lib/days';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 
 const mealsForWeek: Meal[] = meals;
 const daysOfTheWeek = days;
@@ -32,17 +32,32 @@ export default function MealPlan() {
     }
     return (
         <div>
-            <Button type="button" 
-                    onClick={generateMeals}
-                    variant="warning">
-                    Generate Meal Plan
-            </Button>
+            <Row>
+                <Col md={3}>
+                    <Button type="button" 
+                            onClick={generateMeals}
+                            variant="warning">
+                            Generate Meal Plan
+                    </Button>
+                </Col>
+            </Row>
             {mealsList.length === 7 ? (
-                <ul>
+                <Row>
                     {mealsList.map((meal, index) => (
-                        <li key={index}>{meal.day}: {meal.name}</li>
+                        <Col key={index}>
+                        <Card className='card' style={{ width: '18rem' }}>
+                            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                            <Card.Body>
+                                <Card.Title>{meal.day}</Card.Title>
+                                <Card.Text>
+                                    {meal.name}
+                                </Card.Text>
+                                <Button variant="link">Details</Button>
+                            </Card.Body>
+                        </Card>
+                        </Col>
                     ))} 
-                </ul>
+                </Row>
             ) : (
                 <p>Generating Meals</p>
             )}
