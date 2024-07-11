@@ -8,7 +8,7 @@ export type Meal = {
 };
 
 export type DataDisplay = {
-  index: number;
+  index: string;
   header: string;
   body: string;
 }

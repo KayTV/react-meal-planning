@@ -17,7 +17,7 @@ const AccordionCommon = <T,>({
     return (
         <Accordion>
             {data.map((value, i) => (
-                <Accordion.Item key={i} eventKey='i'>
+                <Accordion.Item key={value.index} eventKey={value.index}>
                     <Accordion.Header>{value.header}</Accordion.Header>
                     <Accordion.Body>
                         {value.body}
