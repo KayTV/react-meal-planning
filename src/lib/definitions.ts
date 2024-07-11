@@ -6,3 +6,9 @@ export type Meal = {
   directions?: string[];
   day?: string;
 };
+
+export type DataDisplay = {
+  index: number;
+  header: string;
+  body: string;
+}

@@ -1,7 +1,6 @@
-
 import { Container } from "react-bootstrap";
-import MealPlan from "./meal-plan/meal-plan";
-import NavBarFunction from "./navbar/navbar";
+import MealPlan from "./pages/meal-plan";
+import NavBarFunction from "./components/navbar";
 
 export default function Home() {
   return (

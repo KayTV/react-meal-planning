@@ -1,9 +1,12 @@
  'use client';
-import {meals} from '../../lib/meals';
-import {Meal} from '../../lib/definitions';
-import {days} from '../../lib/days';
-import React from 'react';
+
 import { Button, Card, Col, Row } from 'react-bootstrap';
+
+import ButtonCommon from '../components/button';
+import {Meal} from '../../lib/definitions';
+import React from 'react';
+import {days} from '../../lib/days';
+import {meals} from '../../lib/meals';
 
 const mealsForWeek: Meal[] = meals;
 const daysOfTheWeek = days;
@@ -13,6 +16,7 @@ export default function MealPlan() {
     let weekMeals: Meal[] = [];
     const [mealsList, setMealsList] = React.useState(weekMeals);
     let mealsComplete: boolean = false;
+
     const generateMeals = () => {
         weekMeals = [];
         setMealsList([]);
@@ -34,11 +38,11 @@ export default function MealPlan() {
         <div>
             <Row>
                 <Col md={3}>
-                    <Button type="button" 
+                    <ButtonCommon
                             onClick={generateMeals}
-                            variant="warning">
+                            className="warning">
                             Generate Meal Plan
-                    </Button>
+                    </ButtonCommon>
                 </Col>
             </Row>
             {mealsList.length === 7 ? (
