@@ -2,14 +2,39 @@ const meals = [
   {
     index: 1,
     name: "Bimbimbop",
+    ingrediants: [
+      "steak",
+      "mushrooms",
+      "peppers",
+      "bok choy",
+      "bimbimbop sauce",
+      "rice"
+    ]
   },
   {
     index: 2,
     name: "Burrito Bowls",
+    ingrediants: [
+      "meat",
+      "onions",
+      "peppers",
+      "lettuce",
+      "mexican cheese",
+      "sour cream",
+      "rice"
+    ]
   },
   {
     index: 3,
     name: "Stirfry",
+    ingrediants: [
+      "chicken",
+      "mushrooms",
+      "peppers",
+      "onions",
+      "brocolli",
+      "rice"
+    ]
   },
   {
     index: 4,
@@ -38,6 +63,12 @@ const meals = [
   {
     index: 10,
     name: "Pasta & meatballs",
+    ingrediants: [
+      "meatballs",
+      "pasta",
+      "red sauce",
+      "parmasan cheese"
+    ]
   },
   {
     index: 11,

@@ -17,38 +17,40 @@ const fruitArray: string[] = fruit
 
 // generate random meals for a week
 export default function MealPlan() {
-    let weekMeals: Meal[] = [];
-    let weekMeals2: DataDisplay[] = [];
+    let fullWeekMeals: Meal[] = [];
+    let weekMeals: DataDisplay[] = [];
     let weekFruit: string[] = [];
-    const [mealsList, setMealsList] = React.useState(weekMeals);
-    const [mealsList2, setMealsList2] = React.useState(weekMeals2);
+    let weekShopping: string[] = [];
+    const [mealsList, setMealsList] = React.useState(fullWeekMeals);
+    const [mealsList2, setMealsList2] = React.useState(weekMeals);
     const [fruitList, setFruitList] = React.useState(weekFruit);
+    const [shoppingList, setShoppingList] = React.useState(weekShopping);
     let mealsComplete: boolean = false;
 
     const generateMeals = () => {
+        fullWeekMeals = [];
         weekMeals = [];
-        weekMeals2 = [];
         setMealsList([]);
         setMealsList2([]);
-        while (weekMeals.length !== 7) {
+        while (fullWeekMeals.length !== 7) {
             mealsComplete = false;
             const randomObject = mealsArray[Math.floor(Math.random() * mealsArray.length)];
-            const isRepeat = weekMeals.find(x => x.name === randomObject.name);
+            const isRepeat = fullWeekMeals.find(x => x.name === randomObject.name);
             if (isRepeat === undefined) {
-                randomObject.index = weekMeals.length;
+                randomObject.index = fullWeekMeals.length;
                 randomObject.day = days[randomObject.index];
                 const test: DataDisplay = {
                     index: randomObject.index.toString(),
                     header: randomObject.day + ': ' + randomObject.name,
                     body: 'this is the body'
                 }
-                weekMeals.push(randomObject);
-                weekMeals2.push(test);
+                fullWeekMeals.push(randomObject);
+                weekMeals.push(test);
             } 
         }
         mealsComplete = true;
-        setMealsList(weekMeals);
-        setMealsList2(weekMeals2);
+        setMealsList(fullWeekMeals);
+        setMealsList2(weekMeals);
     }
 
     const generateFruit = () => {
@@ -63,6 +65,26 @@ export default function MealPlan() {
         }
         console.log(weekFruit);
         setFruitList(weekFruit);
+    }
+
+    const generateShoppingList = () => {
+        weekShopping = [];
+        setShoppingList([]);
+        if (mealsList.length > 0) {
+            mealsList.forEach((meal) => {
+                if (meal.ingrediants) {
+                    meal.ingrediants.forEach((item) => {
+                        weekShopping.push(item);
+                    });
+                }
+            });
+            console.log(weekShopping);
+        }
+        if (fruitList.length > 0) {
+            weekShopping = weekShopping.concat(fruitList);
+        }
+        console.log(weekShopping);
+        setShoppingList(weekShopping);
     }
 
     return (
@@ -84,7 +106,7 @@ export default function MealPlan() {
                 </Col>
                 <Col md={4}>
                     <ButtonCommon
-                            onClick={generateMeals}
+                            onClick={generateShoppingList}
                             className="warning">
                             Generate Shopping List
                     </ButtonCommon>
@@ -120,7 +142,7 @@ export default function MealPlan() {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <ListCommon key={0} data={fruitList}>
+                                <ListCommon data={fruitList}>
                                 </ListCommon>
                             </Col> 
                         </Row>
@@ -130,7 +152,7 @@ export default function MealPlan() {
                     )}
                 </Col>
                 <Col md={4}>
-                    {mealsList.length === 7 ? (
+                    {shoppingList.length > 0 ? (
                     <>
                         <Row className='row-padding'>
                             <Col md={12}>
@@ -139,7 +161,7 @@ export default function MealPlan() {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <ListCommon key={0} data={fruitArray}>
+                                <ListCommon data={shoppingList} deleteOption={true}>
                                 </ListCommon>
                             </Col> 
                         </Row>

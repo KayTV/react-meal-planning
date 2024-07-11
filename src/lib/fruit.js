@@ -10,6 +10,7 @@ const fruit = [
   "Watermelon",
   "Orange",
   "Peach",
+  "Clementines"
 ];
 
 module.exports = {

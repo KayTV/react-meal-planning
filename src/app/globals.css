@@ -5,3 +5,7 @@
 .containerClass {
   margin-top: 3%;
 }
+
+.rightDisplay {
+  margin: 0 0 0 auto;
+}
