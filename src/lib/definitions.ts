@@ -1,8 +1,9 @@
 export type Meal = {
   index: number;
   name: string;
+  description: string;
   picture?: string;
-  ingrediants?: string[];
+  ingrediants: string[];
   directions?: string[];
   day?: string;
 };

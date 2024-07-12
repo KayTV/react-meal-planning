@@ -42,7 +42,7 @@ export default function MealPlan() {
                 const test: DataDisplay = {
                     index: randomObject.index.toString(),
                     header: randomObject.day + ': ' + randomObject.name,
-                    body: 'this is the body'
+                    body: randomObject.description
                 }
                 fullWeekMeals.push(randomObject);
                 weekMeals.push(test);
@@ -85,6 +85,16 @@ export default function MealPlan() {
         }
         console.log(weekShopping);
         setShoppingList(weekShopping);
+    }
+
+    const deleteItemFromList = (index: number) => {
+        if (shoppingList.length > 0) {
+            console.log(index);
+            console.log(shoppingList);
+            shoppingList.splice(index, 1);
+        }
+        console.log(shoppingList);
+        setShoppingList(shoppingList);
     }
 
     return (
@@ -161,7 +171,9 @@ export default function MealPlan() {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <ListCommon data={shoppingList} deleteOption={true}>
+                                <ListCommon data={shoppingList} 
+                                            deleteOption={true}
+                                            onClick={deleteItemFromList}>
                                 </ListCommon>
                             </Col> 
                         </Row>
