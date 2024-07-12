@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { ListGroup } from 'react-bootstrap';
 import { Trash } from "react-bootstrap-icons";
@@ -16,19 +16,14 @@ const ListCommon = ({
     onClick = () => {},
     children,
     }: Props) => {
-        console.log(data);
-        const [newData, setData] = useState(data);
         const handleOnClick = (event: number) => {
             // event.preventDefault();
             onClick(event);
-          };
-          useEffect( () => {
-            setData(data);
-        }, [data]);
+        };
 
     return (
         <ListGroup>
-            {newData.map((value, i) => (
+            {data.map((value, i) => (
                 <ListGroup.Item className="d-flex justify-content-between align-items-start" key={i}>
                         {value}
                         {deleteOption ? (

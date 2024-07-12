@@ -78,23 +78,19 @@ export default function MealPlan() {
                     });
                 }
             });
-            console.log(weekShopping);
         }
         if (fruitList.length > 0) {
             weekShopping = weekShopping.concat(fruitList);
         }
-        console.log(weekShopping);
         setShoppingList(weekShopping);
     }
 
     const deleteItemFromList = (index: number) => {
-        if (shoppingList.length > 0) {
-            console.log(index);
-            console.log(shoppingList);
-            shoppingList.splice(index, 1);
+        const newList = [...shoppingList];
+        if (newList.length > 0) {
+            newList.splice(index, 1);
         }
-        console.log(shoppingList);
-        setShoppingList(shoppingList);
+        setShoppingList(newList);
     }
 
     return (
