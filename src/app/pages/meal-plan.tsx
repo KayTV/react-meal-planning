@@ -1,6 +1,6 @@
  'use client';
 
-import { Accordion, Button, Card, Col, Row } from 'react-bootstrap';
+import { Accordion, Button, Card, Col, Container, Row } from 'react-bootstrap';
 import {DataDisplay, Meal} from '../../lib/definitions';
 
 import AccordionCommon from '../components/accordian';
@@ -94,7 +94,7 @@ export default function MealPlan() {
     }
 
     return (
-        <>
+        <Container className="containerClass" fluid>
             <Row className='row-padding'>
                 <Col md={4}>
                     <ButtonCommon
@@ -178,9 +178,8 @@ export default function MealPlan() {
                         <p>Generating Shopping List...</p>
                     )}
                 </Col>
-            </Row>
-            
-        </>
+            </Row>    
+        </Container>
     )
 
 }

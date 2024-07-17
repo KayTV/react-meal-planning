@@ -1,11 +1,10 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { ListUl } from "react-bootstrap-icons";
 
 export default function NavBarFunction() {
     return (
-        <Navbar bg="primary" data-bs-theme="dark" fixed="top">
-            <Container>
-               <ListUl />
+        <Navbar bg="dark" data-bs-theme="dark" fixed="top">
+            <Container fluid>
+               <h5 className="navDisplay">Meal Plan</h5>
             </Container>
         </Navbar>
 
