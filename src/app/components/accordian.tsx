@@ -8,7 +8,7 @@ export type Props = {
     children?: React.ReactNode;
   };
 
-const AccordionCommon = <T,>({
+const AccordionCommon = ({
     key = 0,
     data,
     children,

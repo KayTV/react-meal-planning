@@ -13,3 +13,8 @@
 .navDisplay {
   color: white;
 }
+
+.clearButton {
+  padding-bottom: 2%;
+  text-align: center;
+}
