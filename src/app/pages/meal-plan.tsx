@@ -96,6 +96,18 @@ export default function MealPlan() {
     return (
         <Container className="containerClass" fluid>
             <Row className='row-padding'>
+                <Col md={12}>
+                    <h1>Meal Plan</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col md={12}>
+                    <p>Click the buttons below to generate a meal plan, fruit for the week, and a shopping list.</p>
+                    <hr></hr>
+                </Col>
+
+            </Row>
+            <Row className='row-padding'>
                 <Col md={4}>
                     <ButtonCommon
                             onClick={generateMeals}
@@ -113,7 +125,8 @@ export default function MealPlan() {
                 <Col md={4}>
                     <ButtonCommon
                             onClick={generateShoppingList}
-                            className="warning">
+                            className="warning"
+                            disabled={mealsList.length === 0 && fruitList.length === 0}>
                             Generate Shopping List
                     </ButtonCommon>
                 </Col>
