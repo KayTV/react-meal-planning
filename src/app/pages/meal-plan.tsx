@@ -100,6 +100,23 @@ export default function MealPlan() {
         setShoppingList([]);
     }
 
+    const refreshMealOption = (index: number) => {
+        const newMeals = [...mealsList];
+        const newMeals2 = [...mealsList2];
+        const randomObject = mealsArray[Math.floor(Math.random() * mealsArray.length)];
+        randomObject.index = index;
+        randomObject.day = days[randomObject.index];
+        const test: DataDisplay = {
+            index: randomObject.index.toString(),
+            header: randomObject.day + ': ' + randomObject.name,
+            body: randomObject.description
+        }
+        newMeals[index] = randomObject;
+        newMeals2[index] = test;
+        setMealsList(newMeals);
+        setMealsList2(newMeals2);
+    }
+
     return (
         <Container className="containerClass" fluid>
             <Row>
@@ -147,7 +164,8 @@ export default function MealPlan() {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <AccordionCommon key={0} data={mealsList2}>
+                                <AccordionCommon key={0} data={mealsList2}
+                                            onClick={refreshMealOption}>
                                 </AccordionCommon>
                             </Col> 
                         </Row>
