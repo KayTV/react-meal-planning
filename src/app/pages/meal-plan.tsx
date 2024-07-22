@@ -72,8 +72,8 @@ export default function MealPlan() {
         setShoppingList([]);
         if (mealsList.length > 0) {
             mealsList.forEach((meal) => {
-                if (meal.ingrediants) {
-                    meal.ingrediants.forEach((item) => {
+                if (meal.ingredients) {
+                    meal.ingredients.forEach((item) => {
                         weekShopping.push(item);
                     });
                 }

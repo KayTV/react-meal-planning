@@ -3,9 +3,9 @@ const meals = [
     index: 1,
     name: "Bimbimbop",
     description: "Korean dish with steak, mushrooms, peppers, bok choy, bimbimbop sauce, and rice",
-    ingrediants: [
+    ingredients: [
       "steak",
-      "mushrooms",
+      "shiitake mushrooms",
       "peppers",
       "bok choy",
       "bimbimbop sauce",
@@ -30,7 +30,7 @@ const meals = [
     index: 2,
     name: "Burrito Bowls",
     description: "Mexican dish with meat, onions, peppers, lettuce, mexican cheese, sour cream, and rice",
-    ingrediants: [
+    ingredients: [
       "meat",
       "onions",
       "peppers",
@@ -44,7 +44,7 @@ const meals = [
     index: 3,
     name: "Stirfry",
     description: "Chinese dish with chicken, mushrooms, peppers, onions, brocolli, and rice",
-    ingrediants: [
+    ingredients: [
       "chicken",
       "mushrooms",
       "peppers",
@@ -57,17 +57,16 @@ const meals = [
     index: 4,
     name: "Empanadas",
     description: "Mexican dish with frozen empanadas and asparagus",
-    ingrediants: [
+    ingredients: [
       "Frozen Empanadas",
-      "Asparagus",
-
+      "Asparagus"
     ]
   },
   {
     index: 5,
     name: "Indian One pan dish",
     description: "Indian dish with chicken, potatoes, carrots, onions, and indian sauce",
-    ingrediants: [
+    ingredients: [
       "Chicken",
       "Potatoes",
       "Carrots",
@@ -78,13 +77,23 @@ const meals = [
   {
     index: 6,
     name: "Schwarma",
-    description: "Greek dish with chicken, pita, tzatziki sauce, tomatoes, cucombers, and humus",
-    ingrediants: [
-      "Chicken",
-      "Pita",
-      "Tzatziki sauce",
+    description: "Greek dish with chicken, pita, garlic sauce, tomatoes, cucombers, and humus",
+    ingredients: [
+      "4 lb boneless/skinless chicken thighs",
+      "1/2 cup olive oil",
+      "1/4 cup lemon juice",
+      "2 tsp smoked paprika",
+      "1/2 tsp turmeric",
+      "2 tsp cumin",
+      "1/2 tsp red pepper flakes",
+      "4 cloves garlic",
+      "2 tsp black pepper",
+      "1 tsp salt",
+      "1 onion",
+      "Garlic sauce (p 257)",
       "Tomatoes",
       "Cucombers",
+      "Pickles",
       "Humus"
     ]
   },
@@ -92,9 +101,20 @@ const meals = [
     index: 7,
     name: "Butter Chicken",
     description: "Indian dish with chicken, butter chicken sauce, rice, potatoes, and cauliflower",
-    ingrediants: [
-      "Chicken",
-      "Butter Chicken sauce",
+    ingredients: [
+      "1-2 lb Chicken",
+      "14oz Diced Tomatoes",
+      "6 Cloves Garlic",
+      "1 Tbsp Ginger",
+      "1 tsp turmeric",
+      "1 tsp cayenne pepper",
+      "1 tsp paprika",
+      "2 tsp Garam Masala",
+      "1 tsp ground cumin",
+      "1 tsp salt",
+      "4 oz butter",
+      "4 oz heavy cream / full-fat coconut milk",
+      "1/2 cup fresh cilantro",
       "Rice",
       "Potatoes",
       "Cauliflower"
@@ -103,10 +123,13 @@ const meals = [
   {
     index: 8,
     name: "Potstickers",
-    description: "Chinese dish with potstickers, brocolli, rice, and soy sauce",
-    ingrediants: [
+    description: "Chinese dish with potstickers, brocolli, rice, and soy sauce. Can substitute veggies with a frozen veggie mix",
+    ingredients: [
       "Potstickers",
       "Brocolli",
+      "Bell Pepper",
+      "Onion",
+      "Corn",
       "Rice",
       "Soy Sauce"
     ]
@@ -115,18 +138,19 @@ const meals = [
     index: 9,
     name: "Perogies and Sausage",
     description: "Ukrainian dish with perogies, sausage, sour cream, and onions",
-    ingrediants: [
+    ingredients: [
       "Perogies",
       "Sausage",
       "Sour Cream",
-      "Onions"
+      "Onions",
+      "Bell Peppers"
     ]
   },
   {
     index: 10,
     name: "Pasta & meatballs",
     description: "Italian dish with meatballs, pasta, red sauce, and parmasan cheese",
-    ingrediants: [
+    ingredients: [
       "meatballs",
       "pasta",
       "red sauce",
@@ -136,81 +160,87 @@ const meals = [
   {
     index: 11,
     name: "Meatball Subs",
-    description: "Italian dish with meatballs, sub buns, red sauce, and Mozerrela Cheese",
-    ingrediants: [
-      "meatballs",
-      "sub buns",
-      "red sauce",
+    description: "Italian sub with meatballs, sub buns, red sauce, and Mozerrela Cheese",
+    ingredients: [
+      "Meatballs",
+      "Sub Buns",
+      "Marinara sauce",
       "Mozerrela Cheese"
     ]
   },
   {
     index: 12,
     name: "Chicken Pesto Sandwich",
-    description: "Italian dish with Chicken, Pesto, Buns, Tomato, Lettuce, and Mozerrela Cheese",
-    ingrediants: [
-      "Chicken",
+    description: "Chicken Pesto Sandwich with Mozzarella and a side of baked potato fries",
+    ingredients: [
+      "Chicken Tenderloins",
       "Pesto",
-      "Buns",
-      "Tomato",
-      "Lettuce",
-      "Mozerrela Cheese"
+      "Sub Buns",
+      "Fresh Mozerrela Cheese",
+      "Potatoes"
     ]
   },
   {
     index: 13,
-    name: "Enchilladas",
-    description: "Mexican dish with meat, red sauce, tortillas, mexican cheese, sour cream, and lettuce",
-    ingrediants: [
-      "meat",
-      "red sauce",
-      "tortillas",
-      "mexican cheese",
-      "sour cream",
-      "lettuce"
+    name: "Rice & Bean Enchilladas",
+    description: "Mexican dish with red sauce, tortillas, mexican cheese, sour cream",
+    ingredients: [
+      "8 Tortillas",
+      "1/2 lb peppers",
+      "Yellow Onion",
+      "1/2 cup Jasmine Rice",
+      "4oz Sour Cream or Creme Fraisce",
+      "2 Cloves Garlic",
+      "1 Lime",
+      "15oz Crushed Tomatoes",
+      "15.5 oz Pinto Beans",
+      "4oz Monterey Jack Cheese",
+      "1 Tbsp Mexican Spice Blend"
     ]
   },
   {
     index: 14,
     name: "Tacos",
     description: "Mexican dish with meat, tortillas, mexican cheese, sour cream, and lettuce",
-    ingrediants: [
+    ingredients: [
       "meat",
       "tortillas",
       "mexican cheese",
       "sour cream",
-      "lettuce"
+      "lettuce",
+      "bell peppers",
+      "onions"
     ]
   },
   {
     index: 15,
     name: "Pizza",
     description: "Italian dish with Pizza dough, Pizza sauce, mozerella cheese, pepperoni, and salad",
-    ingrediants: [
+    ingredients: [
       "Pizza dough",
       "Pizza sauce",
       "mozerella cheese",
-      "pepperoni",
-      "salad"
+      "pepperoni"
     ]
   },
   {
     index: 16,
-    name: "Quesidillas",
+    name: "Quesadillas",
     description: "Mexican dish with tortillas, mexican cheese, sour cream, lettuce, and meat",
-    ingrediants: [
+    ingredients: [
       "tortillas",
       "mexican cheese",
       "sour cream",
-      "lettuce",
-      "meat"
+      "meat",
+      "bell pepper",
+      "salsa"
     ]
   },
   {
     index: 17,
     name: "Chicken and Veggies",
     description: "Chicken dish with veggies and rice",
-    ingrediants: [
+    ingredients: [
       "chicken",
       "veggies",
       "rice"
@@ -219,18 +249,18 @@ const meals = [
   {
     index: 18,
     name: "chicken nuggets and fries",
-    description: "Chicken nuggets with fries and salad",
-    ingrediants: [
+    description: "Chicken nuggets with fries and seasonal vegetable",
+    ingredients: [
       "chicken nuggets",
       "fries",
-      "salad"
+      "seasonal vegetable"
     ]
   },
   {
     index: 19,
     name: "Ravioli",
     description: "Italian dish with Ravioli, red sauce, parmasan cheese, and salad",
-    ingrediants: [
+    ingredients: [
       "Ravioli",
       "red sauce",
       "parmasan cheese",
@@ -241,7 +271,7 @@ const meals = [
     index: 20,
     name: "Pork and Veggies",
     description: "Pork dish with veggies and rice",
-    ingrediants: [
+    ingredients: [
       "pork",
       "veggies",
       "rice"

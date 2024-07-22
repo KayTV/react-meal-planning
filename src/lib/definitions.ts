@@ -3,7 +3,7 @@ export type Meal = {
   name: string;
   description: string;
   picture?: string;
-  ingrediants: string[];
+  ingredients: string[];
   directions?: string[];
   subRecipes?: SubRecipe[];
   day?: string;
