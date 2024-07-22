@@ -5,7 +5,16 @@ export type Meal = {
   picture?: string;
   ingrediants: string[];
   directions?: string[];
+  subRecipes?: SubRecipe[];
   day?: string;
+};
+
+export type SubRecipe = {
+  name: string;
+  description: string;
+  picture?: string;
+  ingrediants: string[];
+  directions?: string[];
 };
 
 export type DataDisplay = {
