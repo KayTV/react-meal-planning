@@ -10,6 +10,20 @@ const meals = [
       "bok choy",
       "bimbimbop sauce",
       "rice"
+    ],
+    subRecipes: [
+      {
+        index: 1,
+        name: "Bimbimbop Sauce",
+        description: "Korean sauce with soy sauce, sesame oil, sugar, garlic, and ginger",
+        ingrediants: [
+          "soy sauce",
+          "sesame oil",
+          "sugar",
+          "garlic",
+          "ginger"
+        ]
+      }
     ]
   },
   {
