@@ -74,7 +74,8 @@ export default function MealPlan() {
             mealsList.forEach((meal) => {
                 if (meal.ingredients) {
                     meal.ingredients.forEach((item) => {
-                        weekShopping.push(item);
+                        // TODO: This should update a quantity as well for the shopping item
+                        weekShopping.push(item.name);
                     });
                 }
             });

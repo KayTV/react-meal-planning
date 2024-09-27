@@ -7,7 +7,7 @@ const meals: Meal[] = [
     description: "Korean dish with steak, mushrooms, peppers, bok choy, bimbimbop sauce, and rice",
     ingredients: [
       {
-        name: "steak",
+        name: 'Steak',
         quantity: 16,
         unit: Unit.OUNCE,
       },
@@ -95,7 +95,7 @@ const meals: Meal[] = [
         name: 'Stir Fry Vegetable',
         quantity: 16,
         unit: Unit.OUNCE,
-      }
+      },
       {
         name: 'Rice',
         quantity: 1,
