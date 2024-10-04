@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { ReactElement, useEffect, useMemo, useState } from "react";
 
 import { ListGroup } from 'react-bootstrap';
 import { Trash } from "react-bootstrap-icons";
 
 export type Props = {
-    data: string[];
+    data: string[] | ReactElement[];
     onClick?: Function;
     deleteOption?: boolean;
     children?: React.ReactNode;

@@ -1,6 +1,7 @@
-import { Recipe, Unit } from "./definitions";
+import { Ingredient, Recipe } from "./definitions";
+import { Unit } from '@/lib/unit';
 
-const recipes: Recipe[] = [
+export const recipes: Recipe[] = [
     {
         id: 1,
         name: "Bimbimbop Sauce",
@@ -407,4 +408,8 @@ const recipes: Recipe[] = [
             'Bake 9-11 mins at 450F',
         ],
     }
-]
+];
+
+export const getRecipeIngredients = (id: number): Ingredient[] => {
+    return recipes.find((value) => value.id === id)?.ingredients ?? [];
+}

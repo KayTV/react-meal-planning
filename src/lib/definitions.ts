@@ -1,3 +1,5 @@
+import { Unit } from "./unit";
+
 export type Meal = {
   index: number;
   name: string;
@@ -37,13 +39,3 @@ export type Recipe = {
   ingredients: Ingredient[];
   directions: string[];
 };
-
-export enum Unit {
-  TABLESPOON = 'tbsp',
-  TEASPOON = 'tsp',
-  CUP = 'cup',
-  OUNCE = 'oz',
-  POUND = 'lb',
-  WHOLE = 'whole',
-  AS_NEEDED = 'as needed',
-}

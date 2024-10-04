@@ -1,6 +1,7 @@
-import { Meal, Unit } from './definitions';
+import { Meal } from './definitions';
+import { Unit } from './unit';
 
-const meals: Meal[] = [
+export const meals: Meal[] = [
   {
     index: 1,
     name: "Bimbimbop",
@@ -302,7 +303,7 @@ const meals: Meal[] = [
       {
         name: 'Meatball',
         quantity: 8,
-        unit: Unit.WHOLE,
+        unit: Unit.OUNCE,
       },
       {
         name: 'Pasta',
@@ -571,7 +572,3 @@ const meals: Meal[] = [
     ],
   },
 ];
-
-module.exports = {
-  meals,
-};

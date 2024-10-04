@@ -1,15 +1,17 @@
  'use client';
 
-import { Accordion, Button, Card, Col, Container, Row } from 'react-bootstrap';
-import {DataDisplay, Meal} from '../../lib/definitions';
+import { Col, Container, Row } from 'react-bootstrap';
+import { DataDisplay, Ingredient, Meal } from '@/lib/definitions';
 
 import AccordionCommon from '../components/accordian';
 import ButtonCommon from '../components/button';
 import ListCommon from '../components/list';
-import React from 'react';
-import {days} from '../../lib/days';
-import {fruit} from '../../lib/fruit';
-import {meals} from '../../lib/meals';
+import React, { ReactElement } from 'react';
+import { days } from '@/lib/days';
+import { fruit } from '@/lib/fruit';
+import { meals } from '@/lib/meals';
+import { convertUnit, Unit } from '@/lib/unit';
+import { recipes } from '@/lib/recipe';
 
 const mealsArray: Meal[] = meals;
 const daysOfTheWeek = days;
@@ -20,11 +22,10 @@ export default function MealPlan() {
     let fullWeekMeals: Meal[] = [];
     let weekMeals: DataDisplay[] = [];
     let weekFruit: string[] = [];
-    let weekShopping: string[] = [];
     const [mealsList, setMealsList] = React.useState(fullWeekMeals);
     const [mealsList2, setMealsList2] = React.useState(weekMeals);
     const [fruitList, setFruitList] = React.useState(weekFruit);
-    const [shoppingList, setShoppingList] = React.useState(weekShopping);
+    const [shoppingList, setShoppingList] = React.useState<Ingredient[]>([]);
     let mealsComplete: boolean = false;
 
     const generateMeals = () => {
@@ -57,33 +58,57 @@ export default function MealPlan() {
         weekFruit = [];
         setFruitList([]);
         while (weekFruit.length !== 3) {
-            const randomObject = fruitArray[Math.floor(Math.random() * fruitArray.length)];
-            const isRepeat = weekFruit.find(x => x === randomObject);
-            if (isRepeat === undefined) {
-                weekFruit.push(randomObject);
-            } 
+            const randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
+            if (!weekFruit.find(x => x === randomFruit)) {
+                weekFruit.push(randomFruit);
+            }
         }
         console.log(weekFruit);
         setFruitList(weekFruit);
     }
 
     const generateShoppingList = () => {
-        weekShopping = [];
+        let weekShopping: Ingredient[] = [];
         setShoppingList([]);
         if (mealsList.length > 0) {
             mealsList.forEach((meal) => {
                 if (meal.ingredients) {
-                    meal.ingredients.forEach((item) => {
-                        // TODO: This should update a quantity as well for the shopping item
-                        weekShopping.push(item.name);
-                    });
+                    weekShopping = updateIngredientsList(weekShopping, meal.ingredients);
                 }
             });
         }
         if (fruitList.length > 0) {
-            weekShopping = weekShopping.concat(fruitList);
+            weekShopping = weekShopping
+                .concat(fruitList.map(
+                    (fruit) => ({
+                        name: `${fruit} for week`,
+                        quantity: 1,
+                        unit: Unit.AS_NEEDED,
+                    })),
+                );
         }
         setShoppingList(weekShopping);
+    }
+
+    const updateIngredientsList = (ingredientsList: Ingredient[], ingredients: Ingredient[]) => {
+        let masterList = [...ingredientsList];
+        ingredients.forEach((item) => {
+            const existingIngredient = masterList.find((value) => value.name === item.name);
+            if (existingIngredient) {
+                updateQuantity(existingIngredient, item);
+            } else {
+                if (item.recipe && item.recipe.length > 0) {
+                    // if there are multiple recipes then pick a random one
+                    const recipeId = item.recipe[Math.floor(Math.random() * item.recipe.length)]
+                    const recipeIngredients = recipes.find((recipe) => recipe.id === recipeId)!.ingredients;
+                    masterList = updateIngredientsList(masterList, recipeIngredients);
+                } else {
+                    masterList.push(item);
+                }
+            }
+        });
+
+        return masterList;
     }
 
     const deleteItemFromList = (index: number) => {
@@ -116,6 +141,33 @@ export default function MealPlan() {
         newMeals2[index] = test;
         setMealsList(newMeals);
         setMealsList2(newMeals2);
+    }
+    
+    const updateQuantity = (existingIngredient: Ingredient, newIngredient: Ingredient): Ingredient => {
+        // Updating quantity for "As Needed" items feels wonky...
+        if (newIngredient.unit === Unit.AS_NEEDED) {
+            return existingIngredient;
+        } else if (existingIngredient.unit === Unit.AS_NEEDED) {
+            existingIngredient.quantity = newIngredient.quantity;
+            existingIngredient.unit = newIngredient.unit;
+        }
+        existingIngredient.quantity += convertUnit(newIngredient.unit, existingIngredient.unit, newIngredient.quantity);
+        return existingIngredient;
+    }
+
+    const createShoppingListItems = (): ReactElement[] => {
+        return shoppingList.map(item => (
+            <Row>
+                <Col md={6}>{item.name}</Col>
+                <Col md={2}>{toFixedDecimals(item.quantity)}</Col>
+                <Col md={4}>{item.unit}</Col>
+            </Row>
+        ));
+    }
+
+    // TODO: Move to utility file
+    const toFixedDecimals = (num: number, decimals = 2): number => {
+        return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
 
     return (
@@ -204,7 +256,7 @@ export default function MealPlan() {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <ListCommon data={shoppingList} 
+                                <ListCommon data={createShoppingListItems()} 
                                             deleteOption={true}
                                             onClick={deleteItemFromList}>
                                 </ListCommon>

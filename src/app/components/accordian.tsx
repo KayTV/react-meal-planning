@@ -11,7 +11,7 @@ export type Props = {
   };
 
 const AccordionCommon = ({
-    key = 0,
+    // key = 0,
     data,
     onClick = () => {},
     children,
