@@ -346,8 +346,8 @@ export const recipes: Recipe[] = [
             },
             {
                 name: 'Bell Peppers',
-                quantity: 0.5,
-                unit: Unit.POUND,
+                quantity: 2,
+                unit: Unit.WHOLE,
             },
             {
                 name: 'Yellow Onion',

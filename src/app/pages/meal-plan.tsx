@@ -7,78 +7,54 @@ import AccordionCommon from '../components/accordian';
 import ButtonCommon from '../components/button';
 import ListCommon from '../components/list';
 import React, { ReactElement } from 'react';
-import { days } from '@/lib/days';
-import { fruit } from '@/lib/fruit';
-import { meals } from '@/lib/meals';
+import { Days, getDayByIndex } from '@/lib/days';
+import { ALL_FRUIT } from '@/lib/fruit';
+import { ALL_MEALS } from '@/lib/meals';
 import { convertUnit, Unit } from '@/lib/unit';
 import { recipes } from '@/lib/recipe';
 
-const mealsArray: Meal[] = meals;
-const daysOfTheWeek = days;
-const fruitArray: string[] = fruit
-
 // generate random meals for a week
 export default function MealPlan() {
-    let fullWeekMeals: Meal[] = [];
-    let weekMeals: DataDisplay[] = [];
-    let weekFruit: string[] = [];
-    const [mealsList, setMealsList] = React.useState(fullWeekMeals);
-    const [mealsList2, setMealsList2] = React.useState(weekMeals);
-    const [fruitList, setFruitList] = React.useState(weekFruit);
+    const [mealsList, setMealsList] = React.useState<Meal[]>([]);
+    const [fruitList, setFruitList] = React.useState<string[]>([]);
     const [shoppingList, setShoppingList] = React.useState<Ingredient[]>([]);
-    let mealsComplete: boolean = false;
 
     const generateMeals = () => {
-        fullWeekMeals = [];
-        weekMeals = [];
-        setMealsList([]);
-        setMealsList2([]);
-        while (fullWeekMeals.length !== 7) {
-            mealsComplete = false;
-            const randomObject = mealsArray[Math.floor(Math.random() * mealsArray.length)];
-            const isRepeat = fullWeekMeals.find(x => x.name === randomObject.name);
+        const _mealsList: Meal[] = [];
+        while (_mealsList.length !== 7) {
+            const randomMeal: Meal = ALL_MEALS[Math.floor(Math.random() * ALL_MEALS.length)];
+            const isRepeat = _mealsList.find(x => x.name === randomMeal.name);
             if (isRepeat === undefined) {
-                randomObject.index = fullWeekMeals.length;
-                randomObject.day = days[randomObject.index];
-                const test: DataDisplay = {
-                    index: randomObject.index.toString(),
-                    header: randomObject.day + ': ' + randomObject.name,
-                    body: randomObject.description
-                }
-                fullWeekMeals.push(randomObject);
-                weekMeals.push(test);
+                randomMeal.index = _mealsList.length;
+                randomMeal.day = getDayByIndex(randomMeal.index);
+                _mealsList.push(randomMeal);
             } 
         }
-        mealsComplete = true;
-        setMealsList(fullWeekMeals);
-        setMealsList2(weekMeals);
+        setMealsList(_mealsList);
     }
 
     const generateFruit = () => {
-        weekFruit = [];
-        setFruitList([]);
-        while (weekFruit.length !== 3) {
-            const randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
-            if (!weekFruit.find(x => x === randomFruit)) {
-                weekFruit.push(randomFruit);
+        const _fruitList: string[] = [];
+        while (_fruitList.length !== 3) {
+            const randomFruit = ALL_FRUIT[Math.floor(Math.random() * ALL_FRUIT.length)];
+            if (!_fruitList.find(x => x === randomFruit)) {
+                _fruitList.push(randomFruit);
             }
         }
-        console.log(weekFruit);
-        setFruitList(weekFruit);
+        setFruitList(_fruitList);
     }
 
     const generateShoppingList = () => {
-        let weekShopping: Ingredient[] = [];
-        setShoppingList([]);
+        let _shoppingList: Ingredient[] = [];
         if (mealsList.length > 0) {
             mealsList.forEach((meal) => {
                 if (meal.ingredients) {
-                    weekShopping = updateIngredientsList(weekShopping, meal.ingredients);
+                    _shoppingList = updateIngredientsList(_shoppingList, meal.ingredients);
                 }
             });
         }
         if (fruitList.length > 0) {
-            weekShopping = weekShopping
+            _shoppingList = _shoppingList
                 .concat(fruitList.map(
                     (fruit) => ({
                         name: `${fruit} for week`,
@@ -87,13 +63,13 @@ export default function MealPlan() {
                     })),
                 );
         }
-        setShoppingList(weekShopping);
+        setShoppingList(_shoppingList);
     }
 
     const updateIngredientsList = (ingredientsList: Ingredient[], ingredients: Ingredient[]) => {
-        let masterList = [...ingredientsList];
+        let updatedIngredients = [...ingredientsList];
         ingredients.forEach((item) => {
-            const existingIngredient = masterList.find((value) => value.name === item.name);
+            const existingIngredient = updatedIngredients.find((value) => value.name === item.name);
             if (existingIngredient) {
                 updateQuantity(existingIngredient, item);
             } else {
@@ -101,14 +77,14 @@ export default function MealPlan() {
                     // if there are multiple recipes then pick a random one
                     const recipeId = item.recipe[Math.floor(Math.random() * item.recipe.length)]
                     const recipeIngredients = recipes.find((recipe) => recipe.id === recipeId)!.ingredients;
-                    masterList = updateIngredientsList(masterList, recipeIngredients);
+                    updatedIngredients = updateIngredientsList(updatedIngredients, recipeIngredients);
                 } else {
-                    masterList.push(item);
+                    updatedIngredients.push(item);
                 }
             }
         });
 
-        return masterList;
+        return updatedIngredients;
     }
 
     const deleteItemFromList = (index: number) => {
@@ -121,26 +97,17 @@ export default function MealPlan() {
 
     const clearAll = () => {
         setMealsList([]);
-        setMealsList2([]);
         setFruitList([]);
         setShoppingList([]);
     }
 
     const refreshMealOption = (index: number) => {
         const newMeals = [...mealsList];
-        const newMeals2 = [...mealsList2];
-        const randomObject = mealsArray[Math.floor(Math.random() * mealsArray.length)];
-        randomObject.index = index;
-        randomObject.day = days[randomObject.index];
-        const test: DataDisplay = {
-            index: randomObject.index.toString(),
-            header: randomObject.day + ': ' + randomObject.name,
-            body: randomObject.description
-        }
-        newMeals[index] = randomObject;
-        newMeals2[index] = test;
+        const randomMeal = ALL_MEALS[Math.floor(Math.random() * ALL_MEALS.length)];
+        randomMeal.index = index;
+        randomMeal.day = getDayByIndex(randomMeal.index);
+        newMeals[index] = randomMeal;
         setMealsList(newMeals);
-        setMealsList2(newMeals2);
     }
     
     const updateQuantity = (existingIngredient: Ingredient, newIngredient: Ingredient): Ingredient => {
@@ -162,6 +129,16 @@ export default function MealPlan() {
                 <Col md={2}>{toFixedDecimals(item.quantity)}</Col>
                 <Col md={4}>{item.unit}</Col>
             </Row>
+        ));
+    }
+
+    const buildDisplayData = (mealList: Meal[]): DataDisplay[] => {
+        return mealList.map((meal) => (
+            {
+                index: meal.index.toString(),
+                header: meal.day + ': ' + meal.name,
+                body: meal.description,
+            }
         ));
     }
 
@@ -217,7 +194,7 @@ export default function MealPlan() {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <AccordionCommon key={0} data={mealsList2}
+                                <AccordionCommon key={0} data={buildDisplayData(mealsList)}
                                             onClick={refreshMealOption}>
                                 </AccordionCommon>
                             </Col> 

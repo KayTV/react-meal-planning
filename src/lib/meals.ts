@@ -1,7 +1,7 @@
 import { Meal } from './definitions';
 import { Unit } from './unit';
 
-export const meals: Meal[] = [
+export const ALL_MEALS: Meal[] = [
   {
     index: 1,
     name: "Bimbimbop",
@@ -302,7 +302,7 @@ export const meals: Meal[] = [
     ingredients: [
       {
         name: 'Meatball',
-        quantity: 8,
+        quantity: 16,
         unit: Unit.OUNCE,
       },
       {
@@ -329,8 +329,8 @@ export const meals: Meal[] = [
     ingredients: [
       {
         name: 'Meatball',
-        quantity: 8,
-        unit: Unit.WHOLE,
+        quantity: 16,
+        unit: Unit.OUNCE,
       },
       {
         name: 'Sub Rolls',
@@ -427,7 +427,7 @@ export const meals: Meal[] = [
       {
         name: 'Bell Peppers',
         quantity: 1,
-        unit: Unit.AS_NEEDED,
+        unit: Unit.WHOLE,
       },
       {
         name: 'Onions',
