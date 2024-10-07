@@ -1,4 +1,5 @@
 import { Ingredient, Recipe } from "./definitions";
+
 import { Unit } from '@/lib/unit';
 
 export const recipes: Recipe[] = [
@@ -8,36 +9,43 @@ export const recipes: Recipe[] = [
         description: "Spicy Korean inspired sauce",
         ingredients: [
             {
+                id: 1,
                 name: 'Gochujang',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 2,
                 name: 'Sesame Oil',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 3,
                 name: 'Sugar',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 4,
                 name: 'Water',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 5,
                 name: 'Sesame Seeds (Toasted)',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 6,
                 name: 'Vinegar / Apple Vinegar',
                 quantity: 1,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 7,
                 name: 'Minced Garlic',
                 quantity: 1,
                 unit: Unit.TEASPOON,
@@ -51,31 +59,37 @@ export const recipes: Recipe[] = [
         description: 'Beef Emapanadas originally made from a Blue Apron recipe',
         ingredients: [
             {
+                id: 1,
                 name: 'Gound Beef',
                 quantity: 1.125,
                 unit: Unit.POUND,
             },
             {
+                id: 2,
                 name: 'Empanada Wrappers',
                 quantity: 10,
                 unit: Unit.WHOLE,
             },
             {
+                id: 3,
                 name: 'Tomato Sauce',
                 quantity: 8,
                 unit: Unit.OUNCE,
             },
             {
+                id: 4,
                 name: 'Red Onion',
                 quantity: 1,
                 unit: Unit.WHOLE,
             },
             {
+                id: 5,
                 name: 'Dried Apricots',
                 quantity: 1.25,
                 unit: Unit.CUP,
             },
             {
+                id: 6,
                 name: 'Mexican Spice Blend',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
@@ -99,41 +113,49 @@ export const recipes: Recipe[] = [
         description: "Mexican Spice Blend",
         ingredients: [
             {
+                id: 1,
                 name: 'Sweet Smoked Paprika',
                 quantity: 4,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 2,
                 name: 'Ancho Chile Powder',
                 quantity: 4,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 3,
                 name: 'Cumin',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 4,
                 name: 'Coriander',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 5,
                 name: 'Garlic Powder',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 6,
                 name: 'Oregano',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 7,
                 name: 'Cocoa Powder',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
             },
             {
+                id: 8,
                 name: 'Cinnamon',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
@@ -147,56 +169,67 @@ export const recipes: Recipe[] = [
         description: 'Instant pot chicken shawarma',
         ingredients: [
             {
+                id: 1,
                 name: 'Olive Oil',
                 quantity: 0.5,
                 unit: Unit.CUP,
             },
             {
+                id: 2,
                 name: 'Lemon Juice',
                 quantity: 0.25,
                 unit: Unit.CUP,
             },
             {
+                id: 3,
                 name: 'Smoked Paprika',
                 quantity: 2,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 4,
                 name: 'Turmeric',
                 quantity: 0.5,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 5,
                 name: 'Cumin',
                 quantity: 2,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 6,
                 name: 'Red Pepper Flakes',
                 quantity: 0.5,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 7,
                 name: 'Garlic',
                 quantity: 4,
                 unit: Unit.WHOLE,
             },
             {
+                id: 8,
                 name: 'Black Pepper',
                 quantity: 2,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 9,
                 name: 'Salt',
                 quantity: 1,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 10,
                 name: 'Onion',
                 quantity: 1,
                 unit: Unit.WHOLE,
             },
             {
+                id: 11,
                 name: 'Boneless/Skinless Chicken Thigh',
                 quantity: 4,
                 unit: Unit.POUND,
@@ -215,31 +248,37 @@ export const recipes: Recipe[] = [
         description: 'Garlic Tahini Sauce',
         ingredients: [
             {
+                id: 1,
                 name: 'Head of Garlic',
                 quantity: 1,
                 unit: Unit.WHOLE,
             },
             {
+                id: 2,
                 name: 'Lemon Juice',
                 quantity: 0.667,
                 unit: Unit.CUP,
             },
             {
+                id: 3,
                 name: 'Cumin',
                 quantity: 0.5,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 4,
                 name: 'Tahini Paste',
                 quantity: 10,
                 unit: Unit.OUNCE,
             },
             {
+                id: 5,
                 name: 'Salt',
                 quantity: 1,
                 unit: Unit.AS_NEEDED,
             },
             {
+                id: 6,
                 name: 'Cold Water',
                 quantity: 1,
                 unit: Unit.AS_NEEDED,
@@ -258,26 +297,31 @@ export const recipes: Recipe[] = [
         description: 'Simple garlic sauce using egg white as an emulsifier',
         ingredients: [
             {
+                id: 1,
                 name: 'Vegetable Oil',
                 quantity: 1,
                 unit: Unit.CUP,
             },
             {
+                id: 1,
                 name: 'Lemon Juice',
                 quantity: 0.333,
                 unit: Unit.CUP,
             },
             {
+                id: 2,
                 name: 'Garlic Clove',
                 quantity: 6,
                 unit: Unit.WHOLE,
             },
             {
+                id: 3,
                 name: 'Egg White',
                 quantity: 1,
                 unit: Unit.WHOLE,
             },
             {
+                id: 4,
                 name: 'Salt',
                 quantity: 1,
                 unit: Unit.TEASPOON,
@@ -291,21 +335,25 @@ export const recipes: Recipe[] = [
         description: 'Lebanese Garlic Sauce',
         ingredients: [
             {
+                id: 1,
                 name: 'Garlic Cloves',
                 quantity: 1,
                 unit: Unit.CUP,
             },
             {
+                id: 2,
                 name: 'Salt',
                 quantity: 2,
                 unit: Unit.TEASPOON,
             },
             {
+                id: 3,
                 name: 'Neutral Oil (Safflower Oil)',
                 quantity: 3,
                 unit: Unit.CUP,
             },
             {
+                id: 4,
                 name: 'Lemon Juice',
                 quantity: 0.5,
                 unit: Unit.CUP,
@@ -326,6 +374,7 @@ export const recipes: Recipe[] = [
         description: 'Instant Pot Butter Chicken',
         ingredients: [
             {
+                id: 1,
                 name: 'Boneless/Skinless Chicken Thigh',
                 quantity: 4,
                 unit: Unit.POUND,
@@ -340,56 +389,67 @@ export const recipes: Recipe[] = [
         description: "Mexican dish with red sauce, tortillas, mexican cheese, sour cream",
         ingredients: [
             {
+                id: 1,
                 name: 'Flour Tortillas',
                 quantity: 8,
                 unit: Unit.WHOLE,
             },
             {
+                id: 2,
                 name: 'Bell Peppers',
                 quantity: 2,
                 unit: Unit.WHOLE,
             },
             {
+                id: 3,
                 name: 'Yellow Onion',
                 quantity: 1,
                 unit: Unit.WHOLE,
             },
             {
+                id: 4,
                 name: 'Jasmine Rice',
                 quantity: 0.5,
                 unit: Unit.CUP,
             },
             {
+                id: 5,
                 name: 'Creme Fraisce',
                 quantity: 4,
                 unit: Unit.OUNCE,
             },
             {
+                id: 6,
                 name: 'Garlic Clove',
                 quantity: 2,
                 unit: Unit.WHOLE,
             },
             {
+                id: 7,
                 name: 'Lime',
                 quantity: 1,
                 unit: Unit.WHOLE,
             },
             {
+                id: 8,
                 name: 'Crushed Tomatoes',
                 quantity: 15,
                 unit: Unit.OUNCE,
             },
             {
+                id: 9,
                 name: 'Pinto Beans',
                 quantity: 15.5,
                 unit: Unit.OUNCE,
             },
             {
+                id: 10,
                 name: 'Monterey Jack Cheese',
                 quantity: 4,
                 unit: Unit.OUNCE,
             },
             {
+                id: 11,
                 name: 'Mexican Spice Blend',
                 quantity: 1,
                 unit: Unit.TABLESPOON,

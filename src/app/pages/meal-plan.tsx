@@ -2,15 +2,15 @@
 
 import { Col, Container, Row } from 'react-bootstrap';
 import { DataDisplay, Ingredient, Meal } from '@/lib/definitions';
+import { Days, getDayByIndex } from '@/lib/days';
+import React, { ReactElement } from 'react';
+import { Unit, convertUnit } from '@/lib/unit';
 
+import { ALL_FRUIT } from '@/lib/fruit';
+import { ALL_MEALS } from '@/lib/meals';
 import AccordionCommon from '../components/accordian';
 import ButtonCommon from '../components/button';
 import ListCommon from '../components/list';
-import React, { ReactElement } from 'react';
-import { Days, getDayByIndex } from '@/lib/days';
-import { ALL_FRUIT } from '@/lib/fruit';
-import { ALL_MEALS } from '@/lib/meals';
-import { convertUnit, Unit } from '@/lib/unit';
 import { recipes } from '@/lib/recipe';
 
 // generate random meals for a week
@@ -57,6 +57,7 @@ export default function MealPlan() {
             _shoppingList = _shoppingList
                 .concat(fruitList.map(
                     (fruit) => ({
+                        id: 0,
                         name: `${fruit} for week`,
                         quantity: 1,
                         unit: Unit.AS_NEEDED,
@@ -124,7 +125,7 @@ export default function MealPlan() {
 
     const createShoppingListItems = (): ReactElement[] => {
         return shoppingList.map(item => (
-            <Row>
+            <Row key={item.id}>
                 <Col md={6}>{item.name}</Col>
                 <Col md={2}>{toFixedDecimals(item.quantity)}</Col>
                 <Col md={4}>{item.unit}</Col>

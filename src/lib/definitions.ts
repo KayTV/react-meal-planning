@@ -26,6 +26,7 @@ export type DataDisplay = {
 };
 
 export type Ingredient = {
+  id: number;
   name: string;
   quantity: number;
   unit: Unit;

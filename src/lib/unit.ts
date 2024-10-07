@@ -8,7 +8,7 @@ export enum Unit {
     AS_NEEDED = 'as needed',
 }
 
-const unitConversions: { [key in Unit]: {[key in Unit]?: number}} = {
+export const unitConversions: { [key in Unit]: {[key in Unit]?: number}} = {
     [Unit.TABLESPOON]: {
         [Unit.TEASPOON]: 3,
         [Unit.CUP]: 1/16,
