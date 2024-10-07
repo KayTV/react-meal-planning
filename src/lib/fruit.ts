@@ -1,4 +1,4 @@
-const fruit = [
+export const ALL_FRUIT: string[] = [
   "Strawberries",
   "Blueberries",
   "Raspberries",
@@ -12,7 +12,3 @@ const fruit = [
   "Peach",
   "Clementines"
 ];
-
-module.exports = {
-  fruit,
-};
