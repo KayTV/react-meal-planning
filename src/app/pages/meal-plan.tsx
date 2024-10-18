@@ -2,7 +2,7 @@
 
 import { Col, Container, Row } from 'react-bootstrap';
 import { DataDisplay, Ingredient, Meal } from '@/lib/definitions';
-import { Days, getDayByIndex } from '@/lib/days';
+import { getDayByIndex } from '@/lib/days';
 import React, { ReactElement } from 'react';
 import { Unit, convertUnit } from '@/lib/unit';
 
@@ -104,10 +104,17 @@ export default function MealPlan() {
 
     const refreshMealOption = (index: number) => {
         const newMeals = [...mealsList];
-        const randomMeal = ALL_MEALS[Math.floor(Math.random() * ALL_MEALS.length)];
-        randomMeal.index = index;
-        randomMeal.day = getDayByIndex(randomMeal.index);
-        newMeals[index] = randomMeal;
+        let isRepeat = true;
+        let i = 0;
+        while (isRepeat) {
+            i++;
+            if (i > 20) break;
+            const randomMeal = ALL_MEALS[Math.floor(Math.random() * ALL_MEALS.length)];
+            isRepeat = !!newMeals.find((meal) => meal.index === randomMeal.index);
+            if (isRepeat) continue;
+            randomMeal.day = getDayByIndex(index);
+            newMeals[index] = randomMeal;
+        }
         setMealsList(newMeals);
     }
     
@@ -125,11 +132,13 @@ export default function MealPlan() {
 
     const createShoppingListItems = (): ReactElement[] => {
         return shoppingList.map(item => (
-            <Row key={item.id}>
-                <Col md={6}>{item.name}</Col>
-                <Col md={2}>{toFixedDecimals(item.quantity)}</Col>
-                <Col md={4}>{item.unit}</Col>
-            </Row>
+            <Container fluid>
+                <Row key={item.id}>
+                    <Col md={6}>{item.name}</Col>
+                    <Col md={2}>{toFixedDecimals(item.quantity)}</Col>
+                    <Col md={4}>{item.unit}</Col>
+                </Row>
+            </Container>
         ));
     }
 

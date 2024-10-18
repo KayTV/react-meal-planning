@@ -1,4 +1,4 @@
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Button, Col, Container, Row } from 'react-bootstrap';
 import { ArrowClockwise } from 'react-bootstrap-icons';
 import { DataDisplay } from '@/lib/definitions';
 import React from "react";
@@ -26,11 +26,21 @@ const AccordionCommon = ({
         <Accordion>
             {data.map((value, i) => (
                 <Accordion.Item key={value.index} eventKey={value.index}>
-                    <Accordion.Header>{value.header}</Accordion.Header>
+                    <Accordion.Header>
+                        <Container fluid>
+                            <Row>
+                                <Col sm={9}>{value.header}</Col>
+                                <Col sm={2}>
+                                    <Button variant="outline-primary" size="sm" onClick={() => handleOnClick(i)}>
+                                        <ArrowClockwise />
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Accordion.Header>
                     <Accordion.Body>
                         <p><b>Description: </b>{value.body}</p>
                         <p>{children}</p>
-                        <p><b>Refresh?</b> <ArrowClockwise onClick={() => handleOnClick(i)} /></p>
                     </Accordion.Body>
                 </Accordion.Item>
             ))}
