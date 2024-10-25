@@ -9,6 +9,7 @@ import { ALL_FRUIT } from '@/lib/fruit';
 import { ALL_MEALS } from '@/lib/meals';
 import AccordionCommon from '../components/accordian';
 import ButtonCommon from '../components/button';
+import CVSExport from '../components/cvs-export';
 import ListCommon from '../components/list';
 import { getDayByIndex } from '@/lib/days';
 import { recipes } from '@/lib/recipe';
@@ -159,6 +160,7 @@ export default function MealPlan() {
 
     return (
         <Container className="containerClass" fluid>
+            <CVSExport />
             <Row>
                 <Col md={12} className='clearButton'>
                     <ButtonCommon
