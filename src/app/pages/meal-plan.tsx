@@ -12,12 +12,15 @@ import ButtonCommon from '../components/button';
 import ListCommon from '../components/list';
 import { getDayByIndex } from '@/lib/days';
 import { recipes } from '@/lib/recipe';
+import { useRouter } from 'next/navigation'
 
 // generate random meals for a week
 export default function MealPlan() {
     const [mealsList, setMealsList] = React.useState<Meal[]>([]);
     const [fruitList, setFruitList] = React.useState<string[]>([]);
     const [shoppingList, setShoppingList] = React.useState<Ingredient[]>([]);
+    const router = useRouter();
+    console.log(router);
 
     const generateMeals = () => {
         const _mealsList: Meal[] = [];
@@ -160,12 +163,19 @@ export default function MealPlan() {
     return (
         <Container className="containerClass" fluid>
             <Row>
-                <Col md={12} className='clearButton'>
+                <Col md={6} className='clearButton'>
                     <ButtonCommon
                             onClick={clearAll}
                             className="dark"
                             disabled={mealsList.length === 0 && fruitList.length === 0 && shoppingList.length === 0}>
                         Clear All
+                    </ButtonCommon>
+                </Col>
+                <Col md={6} className='clearButton'>
+                    <ButtonCommon
+                            onClick={() => router.push('pages/add-meal')}
+                            className="dark">
+                        Add New Meal Option
                     </ButtonCommon>
                 </Col>
             </Row>
@@ -254,7 +264,7 @@ export default function MealPlan() {
                         <p>Generating Shopping List...</p>
                     )}
                 </Col>
-            </Row>    
+            </Row>   
         </Container>
     )
 
