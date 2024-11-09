@@ -1,6 +1,14 @@
-import { Ingredient, Recipe } from "./definitions";
+import { Ingredient } from "./definitions";
 
 import { Unit } from '@/lib/unit';
+
+export type Recipe = {
+    id: number;
+    name: string;
+    description: string;
+    ingredients: Ingredient[];
+    directions: string[];
+  };
 
 export const recipes: Recipe[] = [
     {
@@ -13,18 +21,21 @@ export const recipes: Recipe[] = [
                 name: 'Gochujang',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
+                itemId: 45,
             },
             {
                 id: 2,
                 name: 'Sesame Oil',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
+                itemId: 46,
             },
             {
                 id: 3,
-                name: 'Sugar',
+                name: 'White Sugar',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
+                itemId: 47,
             },
             {
                 id: 4,
@@ -37,18 +48,21 @@ export const recipes: Recipe[] = [
                 name: 'Sesame Seeds (Toasted)',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
+                itemId: 48,
             },
             {
                 id: 6,
-                name: 'Vinegar / Apple Vinegar',
+                name: 'Apple Cider Vinegar',
                 quantity: 1,
                 unit: Unit.TEASPOON,
+                itemId: 49,
             },
             {
                 id: 7,
                 name: 'Minced Garlic',
                 quantity: 1,
                 unit: Unit.TEASPOON,
+                itemId: 50,
             },
         ],
         directions: ['Combine'],
@@ -63,30 +77,35 @@ export const recipes: Recipe[] = [
                 name: 'Gound Beef',
                 quantity: 1.125,
                 unit: Unit.POUND,
+                itemId: 6,
             },
             {
                 id: 2,
                 name: 'Empanada Wrappers',
                 quantity: 10,
                 unit: Unit.WHOLE,
+                itemId: 51,
             },
             {
                 id: 3,
                 name: 'Tomato Sauce',
                 quantity: 8,
                 unit: Unit.OUNCE,
+                itemId: 52,
             },
             {
                 id: 4,
                 name: 'Red Onion',
                 quantity: 1,
                 unit: Unit.WHOLE,
+                itemId: 53,
             },
             {
                 id: 5,
                 name: 'Dried Apricots',
                 quantity: 1.25,
                 unit: Unit.CUP,
+                itemId: 54,
             },
             {
                 id: 6,
@@ -117,48 +136,56 @@ export const recipes: Recipe[] = [
                 name: 'Sweet Smoked Paprika',
                 quantity: 4,
                 unit: Unit.TABLESPOON,
+                itemId: 55,
             },
             {
                 id: 2,
-                name: 'Ancho Chile Powder',
+                name: 'Ancho Chili Powder',
                 quantity: 4,
                 unit: Unit.TABLESPOON,
+                itemId: 56,
             },
             {
                 id: 3,
                 name: 'Cumin',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
+                itemId: 57,
             },
             {
                 id: 4,
                 name: 'Coriander',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
+                itemId: 58,
             },
             {
                 id: 5,
                 name: 'Garlic Powder',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
+                itemId: 59,
             },
             {
                 id: 6,
                 name: 'Oregano',
                 quantity: 2,
                 unit: Unit.TABLESPOON,
+                itemId: 60
             },
             {
                 id: 7,
                 name: 'Cocoa Powder',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
+                itemId: 61,
             },
             {
                 id: 8,
                 name: 'Cinnamon',
                 quantity: 1,
                 unit: Unit.TABLESPOON,
+                itemId: 62,
             },
         ],
         directions: ['Combine'],
@@ -173,66 +200,77 @@ export const recipes: Recipe[] = [
                 name: 'Olive Oil',
                 quantity: 0.5,
                 unit: Unit.CUP,
+                itemId: 63,
             },
             {
                 id: 2,
                 name: 'Lemon Juice',
                 quantity: 0.25,
                 unit: Unit.CUP,
+                itemId: 64,
             },
             {
                 id: 3,
                 name: 'Smoked Paprika',
                 quantity: 2,
                 unit: Unit.TEASPOON,
+                itemId: 55,
             },
             {
                 id: 4,
                 name: 'Turmeric',
                 quantity: 0.5,
                 unit: Unit.TEASPOON,
+                itemId: 65,
             },
             {
                 id: 5,
                 name: 'Cumin',
                 quantity: 2,
                 unit: Unit.TEASPOON,
+                itemId: 57,
             },
             {
                 id: 6,
                 name: 'Red Pepper Flakes',
                 quantity: 0.5,
                 unit: Unit.TEASPOON,
+                itemId: 66
             },
             {
                 id: 7,
                 name: 'Garlic',
                 quantity: 4,
                 unit: Unit.WHOLE,
+                itemId: 50,
             },
             {
                 id: 8,
                 name: 'Black Pepper',
                 quantity: 2,
                 unit: Unit.TEASPOON,
+                itemId: 67,
             },
             {
                 id: 9,
                 name: 'Salt',
                 quantity: 1,
                 unit: Unit.TEASPOON,
+                itemId: 68,
             },
             {
                 id: 10,
                 name: 'Onion',
                 quantity: 1,
                 unit: Unit.WHOLE,
+                itemId: 7,
             },
             {
                 id: 11,
                 name: 'Boneless/Skinless Chicken Thigh',
                 quantity: 4,
                 unit: Unit.POUND,
+                itemId: 69,
             },
         ],
         directions: [
@@ -252,30 +290,35 @@ export const recipes: Recipe[] = [
                 name: 'Head of Garlic',
                 quantity: 1,
                 unit: Unit.WHOLE,
+                itemId: 70,
             },
             {
                 id: 2,
                 name: 'Lemon Juice',
                 quantity: 0.667,
                 unit: Unit.CUP,
+                itemId: 64,
             },
             {
                 id: 3,
                 name: 'Cumin',
                 quantity: 0.5,
                 unit: Unit.TEASPOON,
+                itemId: 57,
             },
             {
                 id: 4,
                 name: 'Tahini Paste',
                 quantity: 10,
                 unit: Unit.OUNCE,
+                itemId: 71,
             },
             {
                 id: 5,
                 name: 'Salt',
                 quantity: 1,
                 unit: Unit.AS_NEEDED,
+                itemId: 68,
             },
             {
                 id: 6,
@@ -301,30 +344,35 @@ export const recipes: Recipe[] = [
                 name: 'Vegetable Oil',
                 quantity: 1,
                 unit: Unit.CUP,
+                itemId: 72,
             },
             {
                 id: 1,
                 name: 'Lemon Juice',
                 quantity: 0.333,
                 unit: Unit.CUP,
+                itemId: 64
             },
             {
                 id: 2,
                 name: 'Garlic Clove',
                 quantity: 6,
                 unit: Unit.WHOLE,
+                itemId: 50,
             },
             {
                 id: 3,
                 name: 'Egg White',
                 quantity: 1,
                 unit: Unit.WHOLE,
+                itemId: 73,
             },
             {
                 id: 4,
                 name: 'Salt',
                 quantity: 1,
                 unit: Unit.TEASPOON,
+                itemId: 68,
             },
         ],
         directions: ['Combine and blend for 1-2 minutes'],
@@ -339,24 +387,28 @@ export const recipes: Recipe[] = [
                 name: 'Garlic Cloves',
                 quantity: 1,
                 unit: Unit.CUP,
+                itemId: 50,
             },
             {
                 id: 2,
                 name: 'Salt',
                 quantity: 2,
                 unit: Unit.TEASPOON,
+                itemId: 68,
             },
             {
                 id: 3,
-                name: 'Neutral Oil (Safflower Oil)',
+                name: 'Vegetable Oil',
                 quantity: 3,
                 unit: Unit.CUP,
+                itemId: 72,
             },
             {
                 id: 4,
                 name: 'Lemon Juice',
                 quantity: 0.5,
                 unit: Unit.CUP,
+                itemId: 64,
             },
         ],
         directions: [
@@ -378,6 +430,7 @@ export const recipes: Recipe[] = [
                 name: 'Boneless/Skinless Chicken Thigh',
                 quantity: 4,
                 unit: Unit.POUND,
+                itemId: 69,
             },
 
         ],
@@ -393,60 +446,70 @@ export const recipes: Recipe[] = [
                 name: 'Flour Tortillas',
                 quantity: 8,
                 unit: Unit.WHOLE,
+                itemId: 36,
             },
             {
                 id: 2,
                 name: 'Bell Peppers',
                 quantity: 2,
                 unit: Unit.WHOLE,
+                itemId: 3,
             },
             {
                 id: 3,
                 name: 'Yellow Onion',
                 quantity: 1,
                 unit: Unit.WHOLE,
+                itemId: 7,
             },
             {
                 id: 4,
                 name: 'Jasmine Rice',
                 quantity: 0.5,
                 unit: Unit.CUP,
+                itemId: 5,
             },
             {
                 id: 5,
                 name: 'Creme Fraisce',
                 quantity: 4,
                 unit: Unit.OUNCE,
+                itemId: 74,
             },
             {
                 id: 6,
                 name: 'Garlic Clove',
                 quantity: 2,
                 unit: Unit.WHOLE,
+                itemId: 50,
             },
             {
                 id: 7,
                 name: 'Lime',
                 quantity: 1,
                 unit: Unit.WHOLE,
+                itemId: 75
             },
             {
                 id: 8,
                 name: 'Crushed Tomatoes',
                 quantity: 15,
                 unit: Unit.OUNCE,
+                itemId: 76
             },
             {
                 id: 9,
                 name: 'Pinto Beans',
                 quantity: 15.5,
                 unit: Unit.OUNCE,
+                itemId: 77,
             },
             {
                 id: 10,
                 name: 'Monterey Jack Cheese',
                 quantity: 4,
                 unit: Unit.OUNCE,
+                itemId: 78,
             },
             {
                 id: 11,

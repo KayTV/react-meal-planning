@@ -1,8 +1,9 @@
  'use client';
 
 import { Col, Container, Row } from 'react-bootstrap';
-import { DataDisplay, Ingredient, Meal } from '@/lib/definitions';
-import { getDayByIndex } from '@/lib/days';
+import { DataDisplay, Ingredient } from '@/lib/definitions';
+import { Meal } from '@/lib/meals';
+import { getDayByIndex } from '@/lib/time';
 import React, { ReactElement } from 'react';
 import { Unit, convertUnit } from '@/lib/unit';
 
