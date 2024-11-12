@@ -1,0 +1,25 @@
+input, select, textarea{
+    display: block;
+    width: 100%;
+    padding: .5rem .8rem .5rem .8rem;
+    margin: .9vw 0 ;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.header {
+    text-align: center;
+}
+
+.submitButton {
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+.radioButtons {
+    margin-top: 3%;
+}
+
+p {
+    color: red;
+}

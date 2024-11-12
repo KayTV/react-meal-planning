@@ -1,37 +1,41 @@
+import {FieldError, FieldValues, RegisterOptions, UseFormRegister} from 'react-hook-form'
+
 import { Form } from 'react-bootstrap';
 import React from "react";
 
 export type Props = {
+    name: string;
     className?: string;
     inputLabel?: string;
-    onClick: Function;
+    register: UseFormRegister<any>;
+    errors: string | undefined;
+    required?: boolean;
+    type: string;
+    validationSchema: RegisterOptions;
     disabled?: boolean;
-    children?: React.ReactNode;
 };
 
 export default function InputText({
+    name,
     className = "",
-    inputLabel = "",
-    onClick,
-    children,
+    inputLabel,
+    register,
+    errors,
+    required,
+    type,
+    validationSchema,
     disabled = false,
 }: Props) {
-    const handleOnClick = (event: React.MouseEvent) => {
-        event.preventDefault();
-        onClick(event);
-    };
 
     return (
         <>
-        <Form.Label>{inputLabel}</Form.Label>        
+        <Form.Label>{inputLabel} {required && "*"}</Form.Label>        
         <Form.Control
-            type="text"
+            type={type}
             className={className}
-            onClick={handleOnClick}
-            disabled={disabled}
-        >
-            {children}
-        </Form.Control>
+            {...register(name, validationSchema)}
+            disabled={disabled} />
+        <p>{errors}</p>
         </>
     );
 };
