@@ -2,8 +2,6 @@
 
 import { Col, Container, Row } from 'react-bootstrap';
 import { DataDisplay, Ingredient } from '@/lib/definitions';
-import { Meal } from '@/lib/meals';
-import { getDayByIndex } from '@/lib/time';
 import React, { ReactElement } from 'react';
 import { Unit, convertUnit } from '@/lib/unit';
 
@@ -12,7 +10,8 @@ import { ALL_MEALS } from '@/lib/meals';
 import AccordionCommon from '../components/accordian';
 import ButtonCommon from '../components/button';
 import ListCommon from '../components/list';
-import { getDayByIndex } from '@/lib/days';
+import { Meal } from '@/lib/meals';
+import { getDayByIndex } from '@/lib/time';
 import { recipes } from '@/lib/recipe';
 
 // generate random meals for a week
