@@ -1,13 +1,5 @@
-import Header from "./components/header";
-import MealPlan from "./pages/meal-plan";
-import NavBarFunction from "./components/navbar";
+import { App } from "./App";
 
 export default function Home() {
-  return (
-    <>
-      <NavBarFunction />
-      <Header />
-      <MealPlan />
-    </>
-  );
+  return <App />;
 }
