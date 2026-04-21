@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Meal Planning",
-  description: "Meal Planning App for the week days",
+  title: "Meal Planner — a warm editorial cookbook",
+  description: "Plan the week's dinners, stock the fruit basket, and shop from one tidy list.",
 };
 
 export default function RootLayout({
@@ -16,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-theme="dark">
+      <body>{children}</body>
     </html>
   );
 }
